@@ -1,0 +1,18 @@
+# File: server.properties
+# =====
+# HSQLDB configuration file
+# Databases:
+server.database.0=file:hsqldb-2.3.4/dbfiles/ebiutil;user=ebiutil;password=ebiutil
+server.dbname.0=ebiutil
+# =====
+# Other configuration:
+# Port
+server.port=19000
+# Show stuff on the console (change this to true for production):
+server.silent=false
+# Don't show JDBC trace messages on the console:
+server.trace=false
+server.no_system_exit=false
+# Do not allow remote connections to create a database:
+server.remote_open=false
+# =====

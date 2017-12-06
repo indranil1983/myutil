@@ -1,0 +1,1 @@
+java -jar /home/LAB1/echindr/ebiutil/hsqldb-2.3.4/hsqldb/lib/sqltool.jar --rcFile=/home/LAB1/echindr/ebiutil/hsqldb-2.3.4/hsqldb/conf/sqltool.rc --sql "SHUTDOWN;" ebiutil

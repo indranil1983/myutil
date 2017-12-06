@@ -1,0 +1,7 @@
+# File: ~/sqltool.rc
+# =====
+
+urlid ebiutil
+url jdbc:hsqldb:hsql://localhost:19000/ebitooldb;shutdown=true
+username ebiutil
+password ebiutil

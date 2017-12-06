@@ -1,0 +1,1 @@
+ $JAVA_HOME/bin/java.exe -cp hsqldb-2.3.4/hsqldb/lib/hsqldb.jar org.hsqldb.server.Server --props hsqldb-2.3.4/conf/server.properties

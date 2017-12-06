@@ -1,0 +1,6 @@
+ <Context>
+ 	<Resource name="jdbc/datasource" auth="Container" type="javax.sql.DataSource"
+               maxActive="30" maxIdle="10" maxWait="100"
+               username="ebiutil" password="ebiutil" driverClassName="org.hsqldb.jdbcDriver"
+               url="jdbc:hsqldb:hsql://localhost:19000/ebiutil"/>
+  <Context>

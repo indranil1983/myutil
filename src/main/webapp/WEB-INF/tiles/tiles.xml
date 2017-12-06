@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+   <definition name="base-definition"
+       template="/WEB-INF/tiles/defaultlayout.jsp">  
+       <put-attribute name="jquery-color" value="blue" />  
+       <put-attribute name="directives" value="/WEB-INF/pages/common/directives.inc" />
+       <put-attribute name="header" value="/WEB-INF/pages/common/header.jsp" />
+       <put-attribute name="menu" value="/WEB-INF/pages/common/menu.jsp" />
+       <put-attribute name="body" value="" />
+   </definition>  
+  
+  <!-- login Page -->
+   <definition name="loginPage" extends="base-definition">  
+       <put-attribute name="title" value="Login Page" />
+       <put-attribute name="menu" value="" /> 
+       <put-attribute name="body" value="/WEB-INF/pages/loginPage.jsp" />  
+        
+   </definition>  
+   
+   
+   <!-- Home Page -->
+   <definition name="home" extends="base-definition">  
+       <put-attribute name="title" value="Home Page" />
+       <put-attribute name="body" value="/WEB-INF/pages/home.jsp" />  
+        
+   </definition>  
+  
+   <!-- Production Page -->
+   <definition name="appresource-prod" extends="base-definition">  
+       <put-attribute name="title" value="Production" />  
+       <put-attribute name="jquery-color" value="red" />  
+       <put-attribute name="body" value="/WEB-INF/pages/appresource-prod.jsp" />  
+   </definition>  
+   
+   <!-- Dev/Lab page -->
+   <definition name="appresource-dev" extends="base-definition">  
+       <put-attribute name="title" value="Dev/Lab" />  
+       <put-attribute name="body" value="/WEB-INF/pages/appresource-dev.jsp" />  
+      
+   </definition>  
+   
+ 
+       
+   
+  
+</tiles-definitions>

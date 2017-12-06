@@ -1,0 +1,8 @@
+ 
+"-Dcom.fortify.sca.fileextensions.sql=PLSQL" 
+"-exclude" "C:\proj\cac\repository\cacpl-tool-ebiutil\**\*.java" 
+"-exclude" "C:\proj\cac\repository\cacpl-tool-ebiutil\**\*.properties" 
+"-exclude" "C:\proj\cac\repository\cacpl-tool-ebiutil\**\*.ini" 
+"-exclude" "C:\proj\cac\repository\cacpl-tool-ebiutil\**\*.jar" 
+"-exclude" "C:\proj\cac\repository\cacpl-tool-ebiutil\**\*.class" 
+"C:\proj\cac\repository\cacpl-tool-ebiutil" 

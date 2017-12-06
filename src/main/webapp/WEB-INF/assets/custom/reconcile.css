@@ -1,0 +1,46 @@
+.container {
+	margin-top: 10px;
+}
+
+
+
+.dropzone .dz-success-mark, .dz-error-mark {
+	display: none;
+}
+
+.dropzone .dz-remove {
+	display: block;
+	text-align: center;
+}
+
+.dropzone .dz-details {
+	border-bottom: 1px solid LightGray;
+}
+
+
+
+.dropzone .dz-upload { 
+	font-size: 12px;
+	font-weight: bold;
+	color: black;
+	padding-left: 3px;
+}
+
+.dropzone .dz-preview {
+	display: inline-block;
+	margin: 10px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	line-height: 1.42857;
+	margin-bottom: 20px;
+	padding: 4px;
+}
+
+.file-dropzone {
+	border: 1px dashed #ddd;
+}
+
+.file-dropzone.drag-over {
+	outline: LightGreen solid 4px;
+}

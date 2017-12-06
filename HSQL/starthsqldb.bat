@@ -1,0 +1,1 @@
+start cmd /k ""C:\java\java1.7.8\bin\java.exe" "-cp" "hsqldb-2.3.4\hsqldb\lib\hsqldb.jar" "org.hsqldb.server.Server" "--props" "C:\proj\cac\repository\cacpl-tool-ebiutil\HSQL\hsqldb-2.3.4\conf\server.properties""

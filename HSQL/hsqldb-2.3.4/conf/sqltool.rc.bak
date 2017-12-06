@@ -1,0 +1,18 @@
+# File: ~/sqltool.rc
+# =====
+# Connect to testdb on localhost as SA (no password initially):
+urlid localhost-sa
+url jdbc:hsqldb:hsql://localhost:19000/ebitooldb
+username SA
+password
+# Connect to testdb on localhost as RON:
+urlid localhost-ron
+url jdbc:hsqldb:hsql://localhost:19000/ebitooldb
+username RON
+password ron
+# =====
+# Connect to testdb on localhost as RON:
+urlid localhost-ron
+url jdbc:hsqldb:hsql://localhost:19000/ebitooldb
+username RON
+password ron

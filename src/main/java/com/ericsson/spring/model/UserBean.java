@@ -1,0 +1,20 @@
+package com.ericsson.spring.model;
+
+public class UserBean 
+{
+	String userName=null;
+	
+	
+	
+	public UserBean(String userName) {
+		this.userName = userName;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+
+}

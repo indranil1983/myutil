@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc = "http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/pages/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean> -->
+	
+	<!-- Configure to plugin JSON as request and response in method handler -->
+	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean="jsonMessageConverter"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- Configure bean to convert JSON to POJO and vice versa -->
+	<beans:bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	</beans:bean>	
+	
+	<!-- Defines a resolver implementation bean. It gets applied to all requests handled by that DispatcherServlet -->
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	
+	
+	<!-- datasource jndi reference -->
+	<!-- <beans:bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+		<beans:property name="dataSourceName" value="ds" /> 
+		<beans:property name="URL" value="jdbc:oracle:thin:@10.107.128.78:1521:PPSDB" />
+		<beans:property name="user" value="ebi_util_echindr" />
+		<beans:property name="password" value="echindr" />
+	</beans:bean> -->
+	
+	<!-- <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <beans:property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+	    <beans:property name="url" value="${hsql.url}" />
+	    <beans:property name="username" value="${hsql.username}" />
+	    <beans:property name="password" value="${hsql.password}" />
+	</beans:bean> -->
+	
+	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<beans:property name="jndiName" value="java:comp/env/jdbc/datasource"/>
+    </beans:bean> 
+		
+	<beans:bean  id = "transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <beans:property name = "dataSource"  ref = "dataSource" />    
+   </beans:bean>
+	
+	<beans:bean id="appresourceDao" class="com.ericsson.spring.dao.AppresourceDao">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.ericsson.spring" />
+	
+	<mvc:resources mapping = "/assets/**" location = "/WEB-INF/assets/" />
+	<mvc:resources mapping = "/tiles/**" location = "/WEB-INF/tiles/" />
+   
+   <!-- Enables the Spring MVC @Controller programming model -->	
+   	<mvc:annotation-driven/>
+	<context:property-placeholder properties-ref="utilProp" />
+	
+	<context:property-placeholder properties-ref="utfProp" />
+	
+	<context:property-placeholder properties-ref="customProp" />
+	
+	<beans:bean id="utilProp" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	    <beans:property name="locations" value="classpath:config.properties" />
+	</beans:bean>
+	
+	<beans:bean id="utfProp" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	    <beans:property name="locations" value="classpath:utfmap.properties" />
+	</beans:bean>
+	
+	<beans:bean id="customProp" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	    <beans:property name="locations" value="classpath:customkeys.properties" />
+	</beans:bean>
+	
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
+		<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+			<beans:property name="definitions">
+				<beans:list>
+					<beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
+				</beans:list>
+			</beans:property>
+	</beans:bean>
+	
+</beans:beans>
