@@ -1,5 +1,11 @@
+/*
+ * 
+ */
 package com.ericsson.spring.constants;
 
+/**
+ * The Interface EBIToolConstants.
+ */
 public interface EBIToolConstants {
 	
 	
